@@ -9,7 +9,7 @@ module TOP(
 	input  wire       rgmii_rx_ctl_i,
 
 	output wire [3:0] rgmii_tx_o,
-	input  wire       rgmii_tx_ctl_o
+	output wire       rgmii_tx_ctl_o
 
 );
 

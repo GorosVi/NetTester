@@ -4,16 +4,17 @@
  kind="DelayTesterSystem"
  version="1.0"
  fabric="QSYS">
- <!-- Format version 13.0sp1 232 (Future versions may contain additional information.) -->
- <!-- 2017.08.10.14:10:38 -->
+ <!-- Format version 16.1 196 (Future versions may contain additional information.) -->
+ <!-- 2017.08.10.15:41:43 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1502359838</value>
+  <value>1502365303</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>GENERATION_ID</sysinfo_type>
  </parameter>
  <parameter name="AUTO_UNIQUE_ID">
   <type>java.lang.String</type>
@@ -22,6 +23,7 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>UNIQUE_ID</sysinfo_type>
  </parameter>
  <parameter name="AUTO_DEVICE_FAMILY">
   <type>java.lang.String</type>
@@ -30,6 +32,7 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
  </parameter>
  <parameter name="AUTO_DEVICE">
   <type>java.lang.String</type>
@@ -38,6 +41,16 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>DEVICE</sysinfo_type>
+ </parameter>
+ <parameter name="AUTO_DEVICE_SPEEDGRADE">
+  <type>java.lang.String</type>
+  <value>8</value>
+  <derived>false</derived>
+  <enabled>true</enabled>
+  <visible>false</visible>
+  <valid>true</valid>
+  <sysinfo_type>DEVICE_SPEEDGRADE</sysinfo_type>
  </parameter>
  <parameter name="AUTO_CLK_25M_CLOCK_RATE">
   <type>java.lang.Long</type>
@@ -46,6 +59,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>CLOCK_RATE</sysinfo_type>
+  <sysinfo_arg>clk_25m</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_CLK_25M_CLOCK_DOMAIN">
   <type>java.lang.Integer</type>
@@ -54,6 +69,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>CLOCK_DOMAIN</sysinfo_type>
+  <sysinfo_arg>clk_25m</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_CLK_25M_RESET_DOMAIN">
   <type>java.lang.Integer</type>
@@ -62,6 +79,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>RESET_DOMAIN</sysinfo_type>
+  <sysinfo_arg>clk_25m</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_MAC_PCS_MAC_RX_CLOCK_CONNECTION_CLOCK_RATE">
   <type>java.lang.Long</type>
@@ -70,6 +89,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>CLOCK_RATE</sysinfo_type>
+  <sysinfo_arg>mac_pcs_mac_rx_clock_connection</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_MAC_PCS_MAC_RX_CLOCK_CONNECTION_CLOCK_DOMAIN">
   <type>java.lang.Integer</type>
@@ -78,6 +99,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>CLOCK_DOMAIN</sysinfo_type>
+  <sysinfo_arg>mac_pcs_mac_rx_clock_connection</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_MAC_PCS_MAC_RX_CLOCK_CONNECTION_RESET_DOMAIN">
   <type>java.lang.Integer</type>
@@ -86,6 +109,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>RESET_DOMAIN</sysinfo_type>
+  <sysinfo_arg>mac_pcs_mac_rx_clock_connection</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_MAC_PCS_MAC_TX_CLOCK_CONNECTION_CLOCK_RATE">
   <type>java.lang.Long</type>
@@ -94,6 +119,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>CLOCK_RATE</sysinfo_type>
+  <sysinfo_arg>mac_pcs_mac_tx_clock_connection</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_MAC_PCS_MAC_TX_CLOCK_CONNECTION_CLOCK_DOMAIN">
   <type>java.lang.Integer</type>
@@ -102,6 +129,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>CLOCK_DOMAIN</sysinfo_type>
+  <sysinfo_arg>mac_pcs_mac_tx_clock_connection</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_MAC_PCS_MAC_TX_CLOCK_CONNECTION_RESET_DOMAIN">
   <type>java.lang.Integer</type>
@@ -110,6 +139,8 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>RESET_DOMAIN</sysinfo_type>
+  <sysinfo_arg>mac_pcs_mac_tx_clock_connection</sysinfo_arg>
  </parameter>
  <parameter name="deviceFamily">
   <type>java.lang.String</type>
@@ -118,6 +149,7 @@
   <enabled>true</enabled>
   <visible>false</visible>
   <valid>true</valid>
+  <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
  </parameter>
  <parameter name="generateLegacySim">
   <type>boolean</type>
@@ -127,7 +159,7 @@
   <visible>true</visible>
   <valid>true</valid>
  </parameter>
- <module name="clk_25m" kind="clock_source" version="13.0" path="clk_25m">
+ <module name="clk_25m" kind="clock_source" version="16.1" path="clk_25m">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="clockFrequency">
@@ -153,6 +185,8 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>CLOCK_RATE</sysinfo_type>
+   <sysinfo_arg>clk_in</sysinfo_arg>
   </parameter>
   <parameter name="resetSynchronousEdges">
    <type>com.altera.sopcmodel.reset.Reset$Edges</type>
@@ -178,7 +212,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="clk_in" kind="clock_sink" version="13.0">
+  <interface name="clk_in" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -243,7 +277,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="clk_in_reset" kind="reset_sink" version="13.0">
+  <interface name="clk_in_reset" kind="reset_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -292,7 +326,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset_n</role>
    </port>
   </interface>
-  <interface name="clk" kind="clock_source" version="13.0">
+  <interface name="clk" kind="clock_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -367,7 +401,7 @@ parameters are a RESULT of the module parameters. -->
     <name>pll_0.refclk</name>
    </clockDomainMember>
   </interface>
-  <interface name="clk_reset" kind="reset_source" version="13.0">
+  <interface name="clk_reset" kind="reset_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -432,7 +466,7 @@ parameters are a RESULT of the module parameters. -->
  <module
    name="JTAG_AMM_Bridge"
    kind="altera_jtag_avalon_master"
-   version="13.0"
+   version="16.1"
    path="JTAG_AMM_Bridge">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
@@ -463,6 +497,8 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>CLOCK_RATE</sysinfo_type>
+   <sysinfo_arg>clock</sysinfo_arg>
   </parameter>
   <parameter name="FAST_VER">
    <type>int</type>
@@ -487,6 +523,7 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
   </parameter>
   <parameter name="AUTO_DEVICE">
    <type>java.lang.String</type>
@@ -495,6 +532,16 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>DEVICE</sysinfo_type>
+  </parameter>
+  <parameter name="AUTO_DEVICE_SPEEDGRADE">
+   <type>java.lang.String</type>
+   <value>8</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+   <sysinfo_type>DEVICE_SPEEDGRADE</sysinfo_type>
   </parameter>
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -503,6 +550,7 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
   </parameter>
   <parameter name="generateLegacySim">
    <type>boolean</type>
@@ -512,7 +560,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="clk" kind="clock_sink" version="13.0">
+  <interface name="clk" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -557,7 +605,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="clk_reset" kind="reset_sink" version="13.0">
+  <interface name="clk_reset" kind="reset_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -602,14 +650,10 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="master" kind="avalon_master" version="13.0">
+  <interface name="master" kind="avalon_master" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <assignment>
-    <name>debug.controlledBy</name>
-    <value>in_stream</value>
-   </assignment>
    <assignment>
     <name>debug.providesServices</name>
     <value>master</value>
@@ -799,7 +843,7 @@ parameters are a RESULT of the module parameters. -->
     <value>0</value>
     <derived>false</derived>
     <enabled>true</enabled>
-    <visible>false</visible>
+    <visible>true</visible>
     <valid>true</valid>
    </parameter>
    <parameter name="readLatency">
@@ -941,7 +985,7 @@ parameters are a RESULT of the module parameters. -->
     <span>32</span>
    </memoryBlock>
   </interface>
-  <interface name="master_reset" kind="reset_source" version="13.0">
+  <interface name="master_reset" kind="reset_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1003,22 +1047,48 @@ parameters are a RESULT of the module parameters. -->
    </port>
   </interface>
  </module>
- <module name="pll_0" kind="altera_pll" version="13.0" path="pll_0">
+ <module name="pll_0" kind="altera_pll" version="16.1" path="pll_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
-  <parameter name="device_family">
-   <type>java.lang.String</type>
-   <value>CYCLONEV</value>
+  <parameter name="debug_print_output">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
   </parameter>
-  <parameter name="gui_device_speed_grade">
-   <type>java.lang.String</type>
-   <value>8</value>
+  <parameter name="debug_use_rbc_taf_method">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="device_family">
+   <type>java.lang.String</type>
+   <value>CYCLONEV</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
+  </parameter>
+  <parameter name="device">
+   <type>java.lang.String</type>
+   <value>5CSEBA4U19C8</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+   <sysinfo_type>DEVICE</sysinfo_type>
+  </parameter>
+  <parameter name="gui_device_speed_grade">
+   <type>java.lang.String</type>
+   <value>2</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
@@ -1154,7 +1224,7 @@ the requested settings for a module instance. -->
    <type>int</type>
    <value>0</value>
    <derived>true</derived>
-   <enabled>true</enabled>
+   <enabled>false</enabled>
    <visible>false</visible>
    <valid>true</valid>
   </parameter>
@@ -1177,6 +1247,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_divide_factor_n">
    <type>int</type>
    <value>1</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter0">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1247,8 +1325,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg0">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1268,6 +1346,14 @@ the requested settings for a module instance. -->
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter1">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="gui_output_clock_frequency1">
@@ -1335,8 +1421,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg1">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1353,6 +1439,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle1">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter2">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1423,8 +1517,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg2">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1441,6 +1535,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle2">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter3">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1511,8 +1613,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg3">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1529,6 +1631,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle3">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter4">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1599,8 +1709,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg4">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1617,6 +1727,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle4">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter5">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1687,8 +1805,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg5">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1705,6 +1823,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle5">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter6">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1775,8 +1901,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg6">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1793,6 +1919,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle6">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter7">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1863,8 +1997,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg7">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1881,6 +2015,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle7">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter8">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1951,8 +2093,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg8">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -1969,6 +2111,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle8">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter9">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2039,8 +2189,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg9">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2057,6 +2207,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle9">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter10">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2127,8 +2285,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg10">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2145,6 +2303,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle10">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter11">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2215,8 +2381,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg11">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2233,6 +2399,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle11">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter12">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2303,8 +2477,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg12">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2321,6 +2495,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle12">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter13">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2391,8 +2573,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg13">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2409,6 +2591,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle13">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter14">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2479,8 +2669,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg14">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2497,6 +2687,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle14">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter15">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2567,8 +2765,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg15">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2585,6 +2783,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle15">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter16">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2655,8 +2861,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg16">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2673,6 +2879,14 @@ the requested settings for a module instance. -->
   <parameter name="gui_duty_cycle16">
    <type>int</type>
    <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_cascade_counter17">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2743,8 +2957,8 @@ the requested settings for a module instance. -->
    <valid>true</valid>
   </parameter>
   <parameter name="gui_phase_shift_deg17">
-   <type>int</type>
-   <value>0</value>
+   <type>double</type>
+   <value>0.0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2768,7 +2982,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="output_clock_frequency0">
    <type>java.lang.String</type>
-   <value>125.0 MHz</value>
+   <value>125.000000 MHz</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -3234,8 +3448,24 @@ the requested settings for a module instance. -->
    <type>boolean</type>
    <value>false</value>
    <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_phout_division">
+   <type>int</type>
+   <value>1</value>
+   <derived>false</derived>
    <enabled>false</enabled>
    <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="pll_vcoph_div">
+   <type>int</type>
+   <value>1</value>
+   <derived>true</derived>
+   <enabled>false</enabled>
+   <visible>false</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="pll_type">
@@ -4398,9 +4628,17 @@ the requested settings for a module instance. -->
    <visible>false</visible>
    <valid>true</valid>
   </parameter>
+  <parameter name="pll_slf_rst">
+   <type>java.lang.String</type>
+   <value>false</value>
+   <derived>true</derived>
+   <enabled>false</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="gui_parameter_list">
    <type>[Ljava.lang.String;</type>
-   <value>M-Counter Hi Divide,M-Counter Low Divide,N-Counter Hi Divide,N-Counter Low Divide,M-Counter Bypass Enable,N-Counter Bypass Enable,M-Counter Odd Divide Enable,N-Counter Odd Divide Enable,C-Counter-0 Hi Divide,C-Counter-0 Low Divide,C-Counter-0 Coarse Phase Shift,C-Counter-0 VCO Phase Tap,C-Counter-0 Input Source,C-Counter-0 Bypass Enable,C-Counter-0 Odd Divide Enable,VCO Post Divide Counter Enable,Charge Pump current (uA),Loop Filter Bandwidth Resistor (Ohms) ,PLL Output VCO Frequency,K-Fractional Division Value (DSM),Feedback Clock Type,Feedback Clock MUX 1,Feedback Clock MUX 2,M Counter Source MUX</value>
+   <value>M-Counter Hi Divide,M-Counter Low Divide,N-Counter Hi Divide,N-Counter Low Divide,M-Counter Bypass Enable,N-Counter Bypass Enable,M-Counter Odd Divide Enable,N-Counter Odd Divide Enable,C-Counter-0 Hi Divide,C-Counter-0 Low Divide,C-Counter-0 Coarse Phase Shift,C-Counter-0 VCO Phase Tap,C-Counter-0 Input Source,C-Counter-0 Bypass Enable,C-Counter-0 Odd Divide Enable,VCO Post Divide Counter Enable,Charge Pump current (uA),Loop Filter Bandwidth Resistor (Ohms) ,PLL Output VCO Frequency,K-Fractional Division Value (DSM),Feedback Clock Type,Feedback Clock MUX 1,Feedback Clock MUX 2,M Counter Source MUX,PLL Auto Reset</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -4408,7 +4646,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="gui_parameter_values">
    <type>[Ljava.lang.String;</type>
-   <value>8,7,256,256,false,true,true,false,2,1,1,0,ph_mux_clk,false,true,2,20,4000,375.0 MHz,1,gclk,glb,fb_1,ph_mux_clk</value>
+   <value>8,7,256,256,false,true,true,false,2,1,1,0,ph_mux_clk,false,true,2,20,4000,375.0 MHz,1,gclk,glb,fb_1,ph_mux_clk,false</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -4558,6 +4796,14 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
+  <parameter name="gui_cascade_outclk_index">
+   <type>int</type>
+   <value>0</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="gui_enable_cascade_in">
    <type>boolean</type>
    <value>false</value>
@@ -4582,14 +4828,6 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <parameter name="AUTO_REFCLK_CLOCK_RATE">
-   <type>java.lang.Long</type>
-   <value>25000000</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -4606,7 +4844,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="refclk" kind="clock_sink" version="13.0">
+  <interface name="refclk" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4642,22 +4880,6 @@ parameters are a RESULT of the module parameters. -->
     <visible>true</visible>
     <valid>true</valid>
    </parameter>
-   <parameter name="clockRateKnown">
-    <type>java.lang.Boolean</type>
-    <value>true</value>
-    <derived>true</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="clockRate">
-    <type>java.lang.Long</type>
-    <value>25000000</value>
-    <derived>true</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
    <type>clock</type>
    <isStart>false</isStart>
    <port>
@@ -4667,13 +4889,13 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="reset" kind="reset_sink" version="13.0">
+  <interface name="reset" kind="reset_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
    <parameter name="associatedClock">
     <type>java.lang.String</type>
-    <value>refclk</value>
+    <value></value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
@@ -4681,7 +4903,7 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="synchronousEdges">
     <type>com.altera.sopcmodel.reset.Reset$Edges</type>
-    <value>DEASSERT</value>
+    <value>NONE</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
@@ -4712,7 +4934,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="outclk0" kind="clock_source" version="13.0">
+  <interface name="outclk0" kind="clock_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4811,13 +5033,13 @@ parameters are a RESULT of the module parameters. -->
     <name>MAC.transmit_clock_connection</name>
    </clockDomainMember>
    <clockDomainMember>
-    <isBridge>true</isBridge>
+    <isBridge>false</isBridge>
     <moduleName>clk_125m_out</moduleName>
     <slaveName>clk_in</slaveName>
     <name>clk_125m_out.clk_in</name>
    </clockDomainMember>
   </interface>
-  <interface name="locked" kind="conduit_end" version="13.0">
+  <interface name="locked" kind="conduit_end" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4867,7 +5089,7 @@ parameters are a RESULT of the module parameters. -->
    </port>
   </interface>
  </module>
- <module name="MAC" kind="altera_eth_tse" version="13.0" path="MAC">
+ <module name="MAC" kind="altera_eth_tse" version="16.1" path="MAC">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <assignment>
@@ -4930,6 +5152,30 @@ the requested settings for a module instance. -->
    <name>embeddedsw.CMacro.USE_MDIO</name>
    <value>1</value>
   </assignment>
+  <assignment>
+   <name>embeddedsw.dts.compatible</name>
+   <value>altr,tse-1.0</value>
+  </assignment>
+  <assignment>
+   <name>embeddedsw.dts.group</name>
+   <value>ethernet</value>
+  </assignment>
+  <assignment>
+   <name>embeddedsw.dts.name</name>
+   <value>tse</value>
+  </assignment>
+  <assignment>
+   <name>embeddedsw.dts.params.ALTR,rx-fifo-depth</name>
+   <value>64</value>
+  </assignment>
+  <assignment>
+   <name>embeddedsw.dts.params.ALTR,tx-fifo-depth</name>
+   <value>64</value>
+  </assignment>
+  <assignment>
+   <name>embeddedsw.dts.vendor</name>
+   <value>altr</value>
+  </assignment>
   <parameter name="deviceFamilyName">
    <type>java.lang.String</type>
    <value>CYCLONEV</value>
@@ -4937,6 +5183,7 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
   </parameter>
   <parameter name="enable_padding">
    <type>boolean</type>
@@ -4980,7 +5227,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="core_version">
    <type>int</type>
-   <value>3328</value>
+   <value>4097</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -4988,7 +5235,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="dev_version">
    <type>int</type>
-   <value>3328</value>
+   <value>4097</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -5074,9 +5321,25 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
+  <parameter name="use_mac_clken">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="enable_use_internal_fifo">
    <type>boolean</type>
    <value>true</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="enable_ecc">
+   <type>boolean</type>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -5266,12 +5529,52 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
+  <parameter name="phyip_pll_type">
+   <type>java.lang.String</type>
+   <value>CMU</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="phyip_pll_base_data_rate">
+   <type>java.lang.String</type>
+   <value>1250 Mbps</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="phyip_en_synce_support">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="phyip_pma_bonding_mode">
    <type>java.lang.String</type>
    <value>x1</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="nf_phyip_rcfg_enable">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="nf_lvds_iopll_num_channels">
+   <type>int</type>
+   <value>4</value>
+   <derived>true</derived>
+   <enabled>false</enabled>
+   <visible>false</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="enable_timestamping">
@@ -5305,6 +5608,16 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>DEVICE</sysinfo_type>
+  </parameter>
+  <parameter name="AUTO_DEVICE_SPEEDGRADE">
+   <type>java.lang.String</type>
+   <value>8</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+   <sysinfo_type>DEVICE_SPEEDGRADE</sysinfo_type>
   </parameter>
   <parameter name="generateLegacySim">
    <type>boolean</type>
@@ -5314,7 +5627,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="control_port_clock_connection" kind="clock_sink" version="13.0">
+  <interface name="control_port_clock_connection" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5359,7 +5672,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="reset_connection" kind="reset_sink" version="13.0">
+  <interface name="reset_connection" kind="reset_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5404,7 +5717,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="control_port" kind="avalon_slave" version="13.0">
+  <interface name="control_port" kind="avalon_slave" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5486,6 +5799,14 @@ parameters are a RESULT of the module parameters. -->
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="bridgedAddressOffset">
+    <type>java.math.BigInteger</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
     <valid>true</valid>
    </parameter>
    <parameter name="bridgesToMaster">
@@ -5597,7 +5918,7 @@ parameters are a RESULT of the module parameters. -->
     <value>0</value>
     <derived>false</derived>
     <enabled>false</enabled>
-    <visible>false</visible>
+    <visible>true</visible>
     <valid>true</valid>
    </parameter>
    <parameter name="minimumUninterruptedRunLength">
@@ -5731,43 +6052,43 @@ parameters are a RESULT of the module parameters. -->
    <type>avalon</type>
    <isStart>false</isStart>
    <port>
-    <name>address</name>
+    <name>reg_addr</name>
     <direction>Input</direction>
     <width>8</width>
     <role>address</role>
    </port>
    <port>
-    <name>readdata</name>
+    <name>reg_data_out</name>
     <direction>Output</direction>
     <width>32</width>
     <role>readdata</role>
    </port>
    <port>
-    <name>read</name>
+    <name>reg_rd</name>
     <direction>Input</direction>
     <width>1</width>
     <role>read</role>
    </port>
    <port>
-    <name>writedata</name>
+    <name>reg_data_in</name>
     <direction>Input</direction>
     <width>32</width>
     <role>writedata</role>
    </port>
    <port>
-    <name>write</name>
+    <name>reg_wr</name>
     <direction>Input</direction>
     <width>1</width>
     <role>write</role>
    </port>
    <port>
-    <name>waitrequest</name>
+    <name>reg_busy</name>
     <direction>Output</direction>
     <width>1</width>
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="pcs_mac_tx_clock_connection" kind="clock_sink" version="13.0">
+  <interface name="pcs_mac_tx_clock_connection" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5812,7 +6133,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="pcs_mac_rx_clock_connection" kind="clock_sink" version="13.0">
+  <interface name="pcs_mac_rx_clock_connection" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5857,7 +6178,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="mac_status_connection" kind="conduit_end" version="13.0">
+  <interface name="mac_status_connection" kind="conduit_end" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5920,7 +6241,7 @@ parameters are a RESULT of the module parameters. -->
     <role>ena_10</role>
    </port>
   </interface>
-  <interface name="mac_rgmii_connection" kind="conduit_end" version="13.0">
+  <interface name="mac_rgmii_connection" kind="conduit_end" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5983,7 +6304,7 @@ parameters are a RESULT of the module parameters. -->
     <role>tx_control</role>
    </port>
   </interface>
-  <interface name="transmit_clock_connection" kind="clock_sink" version="13.0">
+  <interface name="receive_clock_connection" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6028,7 +6349,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="receive_clock_connection" kind="clock_sink" version="13.0">
+  <interface name="transmit_clock_connection" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6073,13 +6394,13 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="receive" kind="avalon_streaming_source" version="13.0">
+  <interface name="receive" kind="avalon_streaming_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
    <parameter name="associatedClock">
     <type>java.lang.String</type>
-    <value>transmit_clock_connection</value>
+    <value>receive_clock_connection</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -6234,13 +6555,13 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="transmit" kind="avalon_streaming_sink" version="13.0">
+  <interface name="transmit" kind="avalon_streaming_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
    <parameter name="associatedClock">
     <type>java.lang.String</type>
-    <value>receive_clock_connection</value>
+    <value>transmit_clock_connection</value>
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>false</visible>
@@ -6395,7 +6716,7 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="mac_mdio_connection" kind="conduit_end" version="13.0">
+  <interface name="mac_mdio_connection" kind="conduit_end" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6458,7 +6779,7 @@ parameters are a RESULT of the module parameters. -->
     <role>mdio_oen</role>
    </port>
   </interface>
-  <interface name="mac_misc_connection" kind="conduit_end" version="13.0">
+  <interface name="mac_misc_connection" kind="conduit_end" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6496,30 +6817,6 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <type>conduit</type>
    <isStart>false</isStart>
-   <port>
-    <name>xon_gen</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>xon_gen</role>
-   </port>
-   <port>
-    <name>xoff_gen</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>xoff_gen</role>
-   </port>
-   <port>
-    <name>magic_wakeup</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>magic_wakeup</role>
-   </port>
-   <port>
-    <name>magic_sleep_n</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>magic_sleep_n</role>
-   </port>
    <port>
     <name>ff_tx_crc_fwd</name>
     <direction>Input</direction>
@@ -6585,10 +6882,14 @@ parameters are a RESULT of the module parameters. -->
  <module
    name="sc_fifo_0"
    kind="altera_avalon_sc_fifo"
-   version="13.0"
+   version="16.1"
    path="sc_fifo_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
+  <assignment>
+   <name>debug.isTransparent</name>
+   <value>1</value>
+  </assignment>
   <parameter name="SYMBOLS_PER_BEAT">
    <type>int</type>
    <value>1</value>
@@ -6701,20 +7002,12 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <parameter name="AUTO_DEVICE_FAMILY">
-   <type>java.lang.String</type>
-   <value>CYCLONEV</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
-   <value>Cyclone V</value>
+   <value>UNKNOWN</value>
    <derived>false</derived>
    <enabled>true</enabled>
-   <visible>false</visible>
+   <visible>true</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="generateLegacySim">
@@ -6725,7 +7018,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="clk" kind="clock_sink" version="13.0">
+  <interface name="clk" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6770,7 +7063,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="clk_reset" kind="reset_sink" version="13.0">
+  <interface name="clk_reset" kind="reset_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6815,25 +7108,21 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="csr" kind="avalon_slave" version="13.0">
+  <interface name="csr" kind="avalon_slave" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
    <assignment>
-    <name>embeddedsw.configuration.isFlash</name>
-    <value>0</value>
-   </assignment>
-   <assignment>
     <name>embeddedsw.configuration.isMemoryDevice</name>
-    <value>0</value>
+    <value>false</value>
    </assignment>
    <assignment>
     <name>embeddedsw.configuration.isNonVolatileStorage</name>
-    <value>0</value>
+    <value>false</value>
    </assignment>
    <assignment>
     <name>embeddedsw.configuration.isPrintableDevice</name>
-    <value>0</value>
+    <value>false</value>
    </assignment>
    <parameter name="addressAlignment">
     <type>com.altera.sopcmodel.avalon.AvalonConnectionPoint$AddressAlignment</type>
@@ -6897,6 +7186,14 @@ parameters are a RESULT of the module parameters. -->
     <derived>false</derived>
     <enabled>true</enabled>
     <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="bridgedAddressOffset">
+    <type>java.math.BigInteger</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
     <valid>true</valid>
    </parameter>
    <parameter name="bridgesToMaster">
@@ -7008,7 +7305,7 @@ parameters are a RESULT of the module parameters. -->
     <value>0</value>
     <derived>false</derived>
     <enabled>false</enabled>
-    <visible>false</visible>
+    <visible>true</visible>
     <valid>true</valid>
    </parameter>
    <parameter name="minimumUninterruptedRunLength">
@@ -7172,7 +7469,7 @@ parameters are a RESULT of the module parameters. -->
     <role>writedata</role>
    </port>
   </interface>
-  <interface name="in" kind="avalon_streaming_sink" version="13.0">
+  <interface name="in" kind="avalon_streaming_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7321,10 +7618,14 @@ parameters are a RESULT of the module parameters. -->
     <role>endofpacket</role>
    </port>
   </interface>
-  <interface name="out" kind="avalon_streaming_source" version="13.0">
+  <interface name="out" kind="avalon_streaming_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <assignment>
+    <name>debug.controlledBy</name>
+    <value>in</value>
+   </assignment>
    <parameter name="associatedClock">
     <type>java.lang.String</type>
     <value>clk</value>
@@ -7474,7 +7775,7 @@ parameters are a RESULT of the module parameters. -->
  <module
    name="clk_125m_out"
    kind="clock_source"
-   version="13.0"
+   version="16.1"
    path="clk_125m_out">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
@@ -7501,6 +7802,8 @@ the requested settings for a module instance. -->
    <enabled>true</enabled>
    <visible>false</visible>
    <valid>true</valid>
+   <sysinfo_type>CLOCK_RATE</sysinfo_type>
+   <sysinfo_arg>clk_in</sysinfo_arg>
   </parameter>
   <parameter name="resetSynchronousEdges">
    <type>com.altera.sopcmodel.reset.Reset$Edges</type>
@@ -7526,7 +7829,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="clk_in" kind="clock_sink" version="13.0">
+  <interface name="clk_in" kind="clock_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7591,7 +7894,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="clk_in_reset" kind="reset_sink" version="13.0">
+  <interface name="clk_in_reset" kind="reset_sink" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7640,7 +7943,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset_n</role>
    </port>
   </interface>
-  <interface name="clk" kind="clock_source" version="13.0">
+  <interface name="clk" kind="clock_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7709,7 +8012,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="clk_reset" kind="reset_source" version="13.0">
+  <interface name="clk_reset" kind="reset_source" version="16.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7774,7 +8077,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="clk_25m.clk/pll_0.refclk"
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="clk_25m.clk"
    end="pll_0.refclk">
   <parameter name="deviceFamily">
@@ -7801,7 +8104,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="clk_25m.clk_reset/pll_0.reset"
    kind="reset"
-   version="13.0"
+   version="16.1"
    start="clk_25m.clk_reset"
    end="pll_0.reset">
   <parameter name="deviceFamily">
@@ -7828,7 +8131,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="JTAG_AMM_Bridge.master/MAC.control_port"
    kind="avalon"
-   version="13.0"
+   version="16.1"
    start="JTAG_AMM_Bridge.master"
    end="MAC.control_port">
   <parameter name="arbitrationPriority">
@@ -7879,7 +8182,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="JTAG_AMM_Bridge.master/sc_fifo_0.csr"
    kind="avalon"
-   version="13.0"
+   version="16.1"
    start="JTAG_AMM_Bridge.master"
    end="sc_fifo_0.csr">
   <parameter name="arbitrationPriority">
@@ -7930,7 +8233,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="MAC.receive/sc_fifo_0.in"
    kind="avalon_streaming"
-   version="13.0"
+   version="16.1"
    start="MAC.receive"
    end="sc_fifo_0.in">
   <parameter name="deviceFamily">
@@ -7957,7 +8260,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="sc_fifo_0.out/MAC.transmit"
    kind="avalon_streaming"
-   version="13.0"
+   version="16.1"
    start="sc_fifo_0.out"
    end="MAC.transmit">
   <parameter name="deviceFamily">
@@ -7984,7 +8287,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="clk_25m.clk_reset/MAC.reset_connection"
    kind="reset"
-   version="13.0"
+   version="16.1"
    start="clk_25m.clk_reset"
    end="MAC.reset_connection">
   <parameter name="deviceFamily">
@@ -8011,7 +8314,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="clk_25m.clk_reset/sc_fifo_0.clk_reset"
    kind="reset"
-   version="13.0"
+   version="16.1"
    start="clk_25m.clk_reset"
    end="sc_fifo_0.clk_reset">
   <parameter name="deviceFamily">
@@ -8038,7 +8341,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="clk_25m.clk_reset/JTAG_AMM_Bridge.clk_reset"
    kind="reset"
-   version="13.0"
+   version="16.1"
    start="clk_25m.clk_reset"
    end="JTAG_AMM_Bridge.clk_reset">
   <parameter name="deviceFamily">
@@ -8065,7 +8368,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="pll_0.outclk0/JTAG_AMM_Bridge.clk"
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="pll_0.outclk0"
    end="JTAG_AMM_Bridge.clk">
   <parameter name="deviceFamily">
@@ -8092,7 +8395,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="pll_0.outclk0/MAC.receive_clock_connection"
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="pll_0.outclk0"
    end="MAC.receive_clock_connection">
   <parameter name="deviceFamily">
@@ -8119,7 +8422,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="pll_0.outclk0/MAC.control_port_clock_connection"
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="pll_0.outclk0"
    end="MAC.control_port_clock_connection">
   <parameter name="deviceFamily">
@@ -8146,7 +8449,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="pll_0.outclk0/sc_fifo_0.clk"
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="pll_0.outclk0"
    end="sc_fifo_0.clk">
   <parameter name="deviceFamily">
@@ -8173,7 +8476,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="pll_0.outclk0/MAC.transmit_clock_connection"
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="pll_0.outclk0"
    end="MAC.transmit_clock_connection">
   <parameter name="deviceFamily">
@@ -8200,7 +8503,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="pll_0.outclk0/clk_125m_out.clk_in"
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="pll_0.outclk0"
    end="clk_125m_out.clk_in">
   <parameter name="deviceFamily">
@@ -8227,7 +8530,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="clk_25m.clk_reset/clk_125m_out.clk_in_reset"
    kind="reset"
-   version="13.0"
+   version="16.1"
    start="clk_25m.clk_reset"
    end="clk_125m_out.clk_in_reset">
   <parameter name="deviceFamily">
@@ -8253,107 +8556,27 @@ parameters are a RESULT of the module parameters. -->
  </connection>
  <plugin>
   <instanceCount>2</instanceCount>
-  <name>reset_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Output</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>clock_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Output</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>7</instanceCount>
-  <name>clock</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Clock Connection</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>avalon_streaming_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Streaming Source</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
   <name>clock_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
   <displayName>Clock Source</displayName>
-  <version>13.0</version>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>2</instanceCount>
-  <name>avalon_slave</name>
+  <name>clock_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Slave</displayName>
-  <version>13.0</version>
+  <displayName>Clock Input</displayName>
+  <version>16.1</version>
  </plugin>
  <plugin>
-  <instanceCount>4</instanceCount>
+  <instanceCount>2</instanceCount>
   <name>reset_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Reset Input</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>5</instanceCount>
-  <name>conduit_end</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>avalon</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Memory Mapped Connection</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_eth_tse</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Triple-Speed Ethernet</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>reset_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Output</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>altera_pll</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Altera PLL</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>avalon_streaming</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Streaming Connection</displayName>
-  <version>13.0</version>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>2</instanceCount>
@@ -8361,15 +8584,15 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Clock Output</displayName>
-  <version>13.0</version>
+  <version>16.1</version>
  </plugin>
  <plugin>
-  <instanceCount>8</instanceCount>
-  <name>clock_sink</name>
+  <instanceCount>2</instanceCount>
+  <name>reset_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Input</displayName>
-  <version>13.0</version>
+  <displayName>Reset Output</displayName>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -8377,7 +8600,23 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
   <displayName>JTAG to Avalon Master Bridge</displayName>
-  <version>13.0</version>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>8</instanceCount>
+  <name>clock_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Input</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>reset_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Input</displayName>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -8385,39 +8624,63 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Avalon Memory Mapped Master</displayName>
-  <version>13.0</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>clock_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Input</displayName>
-  <version>13.0</version>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altera_avalon_sc_fifo</name>
+  <name>reset_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Output</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_pll</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Avalon-ST Single Clock FIFO</displayName>
-  <version>13.0</version>
+  <displayName>Altera PLL</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>clock_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Output</displayName>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>5</instanceCount>
-  <name>reset</name>
+  <name>conduit_end</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Reset Connection</displayName>
-  <version>13.0</version>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Conduit</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_eth_tse</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Triple-Speed Ethernet</displayName>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>2</instanceCount>
-  <name>reset_sink</name>
+  <name>avalon_slave</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Input</displayName>
-  <version>13.0</version>
+  <displayName>Avalon Memory Mapped Slave</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>avalon_streaming_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Streaming Source</displayName>
+  <version>16.1</version>
  </plugin>
  <plugin>
   <instanceCount>2</instanceCount>
@@ -8425,8 +8688,48 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Avalon Streaming Sink</displayName>
-  <version>13.0</version>
+  <version>16.1</version>
  </plugin>
- <reportVersion>13.0sp1 232</reportVersion>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_sc_fifo</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Avalon-ST Single Clock FIFO</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>7</instanceCount>
+  <name>clock</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Clock Connection</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>5</instanceCount>
+  <name>reset</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Reset Connection</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>avalon</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Memory Mapped Connection</displayName>
+  <version>16.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>avalon_streaming</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Streaming Connection</displayName>
+  <version>16.1</version>
+ </plugin>
+ <reportVersion>16.1 196</reportVersion>
  <uniqueIdentifier></uniqueIdentifier>
 </EnsembleReport>
