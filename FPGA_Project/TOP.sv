@@ -19,6 +19,9 @@ wire srst_i_n = ~srst_i;
 DelayTesterSystem u0 (
 	.clk_25m_clk                         (clk_25m_i),                         //                         clk_25m.clk
 	.reset_reset_n                       (srst_i_n),                       //                           reset.reset_n
+	.clk_125m_out_clk_clk                (clk_125m_rgmii_tx_o),
+	
+
 	.mac_pcs_mac_rx_clock_connection_clk (clk_125m_rgmii_rx_i), // mac_pcs_mac_rx_clock_connection.clk
 	.mac_pcs_mac_tx_clock_connection_clk (clk_125m_rgmii_tx_o),  // mac_pcs_mac_tx_clock_connection.clk
 

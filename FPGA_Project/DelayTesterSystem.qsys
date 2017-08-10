@@ -16,7 +16,7 @@
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "3";
          type = "int";
       }
    }
@@ -24,7 +24,15 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "4";
+         type = "int";
+      }
+   }
+   element clk_125m_out
+   {
+      datum _sortIndex
+      {
+         value = "2";
          type = "int";
       }
    }
@@ -64,7 +72,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "5";
          type = "int";
       }
    }
@@ -83,10 +91,10 @@
  <parameter name="projectName" value="NetTester.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1502347545545" />
+ <parameter name="timeStamp" value="1502351611043" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript><![CDATA[# request a specific version of the scripting API
-package require -exact qsys 13.0sp1
+package require -exact qsys 13.0
 
 # Set the name of the procedure to manipulate parameters
 set_module_property COMPOSITION_CALLBACK compose
@@ -117,6 +125,11 @@ proc compose {} {
    internal="MAC.pcs_mac_tx_clock_connection"
    type="clock"
    dir="end" />
+ <interface
+   name="clk_125m_out_clk"
+   internal="clk_125m_out.clk"
+   type="clock"
+   dir="start" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_25m">
   <parameter name="clockFrequency" value="25000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -372,18 +385,18 @@ proc compose {} {
   <parameter name="EXPLICIT_MAXCHANNEL" value="0" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
  </module>
+ <module kind="clock_source" version="13.0" enabled="1" name="clk_125m_out">
+  <parameter name="clockFrequency" value="250000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="125000000" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
  <connection kind="clock" version="13.0" start="clk_25m.clk" end="pll_0.refclk" />
  <connection
    kind="reset"
    version="13.0"
    start="clk_25m.clk_reset"
    end="pll_0.reset" />
- <connection
-   kind="clock"
-   version="13.0"
-   start="pll_0.outclk0"
-   end="MAC.transmit_clock_connection" />
- <connection kind="clock" version="13.0" start="pll_0.outclk0" end="sc_fifo_0.clk" />
  <connection
    kind="avalon"
    version="13.0"
@@ -413,16 +426,6 @@ proc compose {} {
    start="sc_fifo_0.out"
    end="MAC.transmit" />
  <connection
-   kind="clock"
-   version="13.0"
-   start="pll_0.outclk0"
-   end="MAC.control_port_clock_connection" />
- <connection
-   kind="clock"
-   version="13.0"
-   start="pll_0.outclk0"
-   end="MAC.receive_clock_connection" />
- <connection
    kind="reset"
    version="13.0"
    start="clk_25m.clk_reset"
@@ -442,6 +445,32 @@ proc compose {} {
    version="13.0"
    start="pll_0.outclk0"
    end="JTAG_AMM_Bridge.clk" />
+ <connection
+   kind="clock"
+   version="13.0"
+   start="pll_0.outclk0"
+   end="MAC.receive_clock_connection" />
+ <connection
+   kind="clock"
+   version="13.0"
+   start="pll_0.outclk0"
+   end="MAC.control_port_clock_connection" />
+ <connection kind="clock" version="13.0" start="pll_0.outclk0" end="sc_fifo_0.clk" />
+ <connection
+   kind="clock"
+   version="13.0"
+   start="pll_0.outclk0"
+   end="MAC.transmit_clock_connection" />
+ <connection
+   kind="clock"
+   version="13.0"
+   start="pll_0.outclk0"
+   end="clk_125m_out.clk_in" />
+ <connection
+   kind="reset"
+   version="13.0"
+   start="clk_25m.clk_reset"
+   end="clk_125m_out.clk_in_reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>
