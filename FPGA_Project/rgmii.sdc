@@ -14,7 +14,7 @@ set_time_format -unit ns -decimal_places 3
 
 create_clock -name {clk_25m_i} -period 40.000 -waveform { 0.000 20.000 } [get_ports {clk_25m_i}]
 
-# ? CHECK! set_false_path -from [get_registers {*ctrl_regs*}]
+set_false_path -from [get_registers {*ctrl_regs*}]
 
 
 # 1000MHz: Period = 8ns		|	 100MHz: Period = 40ns	 |	 10MHz: Period = 400ns 
@@ -56,7 +56,7 @@ set rgmii_rx_control_0 "trg_rx_ctrl_i[0]"
 
 
 
-**************************************************************
+#**************************************************************
 # Board and External PHY 
 #**************************************************************
 
@@ -104,16 +104,17 @@ create_clock -name $rgmii_rx_125M_virtualclk 	-period $RX_CLK_125M_PERIOD
 #**************************************************************
 # Create Generated Clock
 #**************************************************************
-
+derive_pll_clocks  -use_net_name 
 # Tx PLL 
 #**************************************************************
 #create_clock -name clk_125M_0deg -source [ get_ports {tra_clk125m_i} ]
 create_generated_clock -name clk_125M_0deg \
 -source [get_ports {clk_25m_i}] \
-[get_pins {pll_gbe|pll_gbe_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk}] \
+[get_pins {mac_pll_inst|mac_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk}] \
 -multiply_by 5
 
-create_generated_clock -name clk_62_5M \
+
+#create_generated_clock -name clk_62_5M \
 -source [get_ports {clk_25m_i}] \
 [get_pins {pll_gbe|pll_gbe_inst|altera_pll_i|cyclonev_pll|counter[1].output_counter|divclk}] \
 -multiply_by 5 -divide_by 2
@@ -131,7 +132,7 @@ create_generated_clock -name clk_62_5M \
 # It have no effect inside the FPGA
 
 create_generated_clock -name rgmii_125_tx_clk_0 \
--source [get_pins {pll_gbe|pll_gbe_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk}] \
+-source [get_pins {mac_pll_inst|mac_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk}] \
 -master_clock clk_125M_0deg \
 -phase 90 \
 [get_ports $rgmii_tx_clk_0]
@@ -297,7 +298,7 @@ set_false_path \
 # The formula to calculate the input delay is provided in AN433
  
 # Set Input Deday
-set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
+set_input_delay -clock  [get_clocks $rgmii_rx_125M_] \
 -max [expr  $data_delay_max + $tco_max - $clk_delay_min] \
 [get_ports "$rgmii_in_0* $rgmii_rx_control_0"] \
 -add_delay

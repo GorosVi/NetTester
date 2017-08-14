@@ -3,16 +3,16 @@ module TOP(
 	input  wire srst_i,
 
 	input  wire trg_rx_clk_i  [0],
-	input  wire trg_rxd_i     [0][3:0],
+	input  wire [3:0] trg_rxd_i [0],
 	input  wire trg_rx_ctrl_i [0],
 	output wire trg_tx_clk_o  [0],
-	output wire trg_txd_o     [0][0:3],
+	output wire [3:0] trg_txd_o [0],
 	output wire trg_tx_ctrl_o [0],
 
 	output wire trg_mdc_o     [0],
 	inout  wire trg_mdio_io   [0],
 
-	output wire trg_nreset_o  [0],
+	output wire trg_nreset_o  [0]
 );
 
 wire srst_n = ~srst_i;
@@ -26,8 +26,7 @@ MAC_PLL mac_pll_inst(
 
 wire clk_125m_system, clk_125m_mac_tx;
 assign clk_125m_system = clk_125m_out;
-assign clk_125m_mac_tx = clk_125m_out;
-assign clk_125m_rgmii_tx_o = clk_125m_mac_tx;
+assign trg_tx_clk_o[0] = clk_125m_out;
 
 DelayTesterSystem u0 (
 	.qsys_system_clk_clk                 (clk_125m_system),                 //                 qsys_system_clk.clk
@@ -35,7 +34,7 @@ DelayTesterSystem u0 (
 
 	.mac_pcs_mac_rx_clock_connection_clk (trg_rx_clk_i[0]), // mac_pcs_mac_rx_clock_connection.clk
 	.mac_mac_rgmii_connection_rgmii_in   (trg_rxd_i[0]),   //        mac_mac_rgmii_connection.rgmii_in
-	.mac_mac_rgmii_connection_rx_control (trg_rx_ctrl_i[0] ), //                                .rx_control
+	.mac_mac_rgmii_connection_rx_control (trg_rx_ctrl_i[0] ), //  trg_rx_clk_i                              .rx_control
 
 	.mac_pcs_mac_tx_clock_connection_clk (trg_tx_clk_o[0]),  // mac_pcs_mac_tx_clock_connection.clk
 	.mac_mac_rgmii_connection_rgmii_out  (trg_txd_o[0]),  //                                .rgmii_out
@@ -48,9 +47,9 @@ DelayTesterSystem u0 (
 );
 
 logic mac_mdio_in, mac_mdio_out, mac_mdio_oen, mac_mdio_clk;
-assign trg_mdc_o = mac_mdio_clk;
-assign trg_mdio_io = ( mac_mdio_oen ) ? ( mac_mdio_out ) : ( 1'bz ); // Check OEN default value!!!
-assign mac_mdio_in = phy_mdio_mdio;
+assign trg_mdc_o[0] = mac_mdio_clk;
+assign trg_mdio_io[0] = ( !mac_mdio_oen ) ? ( mac_mdio_out ) : ( 1'bz ); // Check OEN default value!!!
+assign mac_mdio_in = trg_mdio_io[0];
 
 
 endmodule
