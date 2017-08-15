@@ -17,9 +17,9 @@ module  MAC_PLL_0002(
 	altera_pll #(
 		.fractional_vco_multiplier("false"),
 		.reference_clock_frequency("25.0 MHz"),
-		.operation_mode("direct"),
+		.operation_mode("normal"),
 		.number_of_clocks(1),
-		.output_clock_frequency0("125.000000 MHz"),
+		.output_clock_frequency0("125.0 MHz"),
 		.phase_shift0("0 ps"),
 		.duty_cycle0(50),
 		.output_clock_frequency1("0 MHz"),
@@ -76,11 +76,11 @@ module  MAC_PLL_0002(
 		.pll_type("General"),
 		.pll_subtype("General")
 	) altera_pll_i (
-		.rst	(rst),
 		.outclk	({outclk_0}),
 		.locked	(locked),
 		.fboutclk	( ),
 		.fbclk	(1'b0),
+		.rst	(rst),
 		.refclk	(refclk)
 	);
 endmodule

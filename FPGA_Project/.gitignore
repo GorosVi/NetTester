@@ -67,5 +67,8 @@ output_files/
 *_sim/
 
 *.ddb
+
+cio_dump_disallowed_lists.echo
+
 # ignore git-running shell script
 shell.cmd

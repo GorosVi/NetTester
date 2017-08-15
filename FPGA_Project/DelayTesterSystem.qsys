@@ -9,6 +9,9 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element $${FILENAME}
+   {
+   }
    element JTAG_AMM_Bridge
    {
       datum _sortIndex
@@ -25,14 +28,6 @@
          type = "int";
       }
    }
-   element MAC.control_port
-   {
-      datum baseAddress
-      {
-         value = "4096";
-         type = "String";
-      }
-   }
    element clk_125m_system
    {
       datum _sortIndex
@@ -41,12 +36,12 @@
          type = "int";
       }
    }
-   element sc_fifo_0
+   element MAC.control_port
    {
-      datum _sortIndex
+      datum baseAddress
       {
-         value = "3";
-         type = "int";
+         value = "4096";
+         type = "String";
       }
    }
    element sc_fifo_0.csr
@@ -55,6 +50,14 @@
       {
          value = "8192";
          type = "String";
+      }
+   }
+   element sc_fifo_0
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
       }
    }
 }
@@ -68,14 +71,11 @@
  <parameter name="generationId" value="0" />
  <parameter name="globalResetBus" value="false" />
  <parameter name="hdlLanguage" value="VERILOG" />
- <parameter name="hideFromIPCatalog" value="false" />
- <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
  <parameter name="projectName" value="NetTester.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
- <parameter name="systemHash" value="0" />
- <parameter name="testBenchDutName" value="" />
- <parameter name="timeStamp" value="0" />
+ <parameter name="systemHash" value="1" />
+ <parameter name="timeStamp" value="1502782463449" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript><![CDATA[# request a specific version of the scripting API
 package require -exact qsys 13.0
@@ -118,89 +118,82 @@ proc compose {} {
    type="reset"
    dir="end" />
  <module
-   name="JTAG_AMM_Bridge"
    kind="altera_jtag_avalon_master"
-   version="16.1"
-   enabled="1">
-  <parameter name="AUTO_DEVICE" value="5CSEBA4U19C8" />
-  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
-  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
+   version="13.0"
+   enabled="1"
+   name="JTAG_AMM_Bridge">
+  <parameter name="USE_PLI" value="0" />
+  <parameter name="PLI_PORT" value="50000" />
   <parameter name="COMPONENT_CLOCK" value="0" />
   <parameter name="FAST_VER" value="0" />
   <parameter name="FIFO_DEPTHS" value="2" />
-  <parameter name="PLI_PORT" value="50000" />
-  <parameter name="USE_PLI" value="0" />
- </module>
- <module name="MAC" kind="altera_eth_tse" version="16.1" enabled="1">
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
   <parameter name="AUTO_DEVICE" value="5CSEBA4U19C8" />
-  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
-  <parameter name="core_variation" value="MAC_ONLY" />
+ </module>
+ <module kind="altera_eth_tse" version="13.0" enabled="1" name="MAC">
   <parameter name="deviceFamilyName" value="Cyclone V" />
-  <parameter name="eg_addr" value="6" />
-  <parameter name="ena_hash" value="false" />
-  <parameter name="enable_alt_reconfig" value="false" />
-  <parameter name="enable_ecc" value="false" />
-  <parameter name="enable_ena" value="32" />
-  <parameter name="enable_gmii_loopback" value="true" />
+  <parameter name="core_variation" value="MAC_ONLY" />
+  <parameter name="ifGMII" value="RGMII" />
+  <parameter name="enable_use_internal_fifo" value="true" />
+  <parameter name="max_channels" value="1" />
+  <parameter name="use_misc_ports" value="true" />
+  <parameter name="transceiver_type" value="NONE" />
   <parameter name="enable_hd_logic" value="false" />
+  <parameter name="enable_gmii_loopback" value="true" />
+  <parameter name="enable_sup_addr" value="false" />
+  <parameter name="stat_cnt_ena" value="true" />
+  <parameter name="ext_stat_cnt_ena" value="false" />
+  <parameter name="ena_hash" value="false" />
+  <parameter name="enable_shift16" value="true" />
   <parameter name="enable_mac_flow_ctrl" value="false" />
   <parameter name="enable_mac_vlan" value="false" />
   <parameter name="enable_magic_detect" value="false" />
-  <parameter name="enable_ptp_1step" value="false" />
-  <parameter name="enable_sgmii" value="false" />
-  <parameter name="enable_shift16" value="true" />
-  <parameter name="enable_sup_addr" value="false" />
-  <parameter name="enable_timestamping" value="false" />
-  <parameter name="enable_use_internal_fifo" value="true" />
-  <parameter name="export_pwrdn" value="false" />
-  <parameter name="ext_stat_cnt_ena" value="false" />
-  <parameter name="ifGMII" value="RGMII" />
-  <parameter name="ing_addr" value="6" />
-  <parameter name="max_channels" value="1" />
-  <parameter name="mdio_clk_div" value="40" />
-  <parameter name="nf_phyip_rcfg_enable" value="false" />
-  <parameter name="phy_identifier" value="0" />
-  <parameter name="phyip_en_synce_support" value="false" />
-  <parameter name="phyip_pll_base_data_rate" value="1250 Mbps" />
-  <parameter name="phyip_pll_type" value="CMU" />
-  <parameter name="phyip_pma_bonding_mode" value="x1" />
-  <parameter name="starting_channel_number" value="0" />
-  <parameter name="stat_cnt_ena" value="true" />
-  <parameter name="transceiver_type" value="NONE" />
-  <parameter name="tstamp_fp_width" value="4" />
   <parameter name="useMDIO" value="true" />
-  <parameter name="use_mac_clken" value="false" />
-  <parameter name="use_misc_ports" value="true" />
+  <parameter name="mdio_clk_div" value="40" />
+  <parameter name="enable_ena" value="32" />
+  <parameter name="eg_addr" value="6" />
+  <parameter name="ing_addr" value="6" />
+  <parameter name="phy_identifier" value="0" />
+  <parameter name="enable_sgmii" value="false" />
+  <parameter name="export_pwrdn" value="false" />
+  <parameter name="enable_alt_reconfig" value="false" />
+  <parameter name="starting_channel_number" value="0" />
+  <parameter name="phyip_pma_bonding_mode" value="x1" />
+  <parameter name="enable_timestamping" value="false" />
+  <parameter name="enable_ptp_1step" value="false" />
+  <parameter name="tstamp_fp_width" value="4" />
+  <parameter name="AUTO_DEVICE" value="5CSEBA4U19C8" />
  </module>
- <module name="clk_125m_system" kind="clock_source" version="16.1" enabled="1">
+ <module kind="clock_source" version="13.0" enabled="1" name="clk_125m_system">
   <parameter name="clockFrequency" value="250000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
  <module
-   name="sc_fifo_0"
    kind="altera_avalon_sc_fifo"
-   version="16.1"
-   enabled="1">
-  <parameter name="BITS_PER_SYMBOL" value="8" />
-  <parameter name="CHANNEL_WIDTH" value="0" />
-  <parameter name="EMPTY_LATENCY" value="3" />
-  <parameter name="ENABLE_EXPLICIT_MAXCHANNEL" value="false" />
-  <parameter name="ERROR_WIDTH" value="0" />
-  <parameter name="EXPLICIT_MAXCHANNEL" value="0" />
-  <parameter name="FIFO_DEPTH" value="64" />
+   version="13.0"
+   enabled="1"
+   name="sc_fifo_0">
   <parameter name="SYMBOLS_PER_BEAT" value="1" />
-  <parameter name="USE_ALMOST_EMPTY_IF" value="0" />
-  <parameter name="USE_ALMOST_FULL_IF" value="0" />
-  <parameter name="USE_FILL_LEVEL" value="1" />
-  <parameter name="USE_MEMORY_BLOCKS" value="1" />
+  <parameter name="BITS_PER_SYMBOL" value="8" />
+  <parameter name="FIFO_DEPTH" value="64" />
+  <parameter name="CHANNEL_WIDTH" value="0" />
+  <parameter name="ERROR_WIDTH" value="0" />
   <parameter name="USE_PACKETS" value="1" />
+  <parameter name="USE_FILL_LEVEL" value="1" />
+  <parameter name="EMPTY_LATENCY" value="3" />
+  <parameter name="USE_MEMORY_BLOCKS" value="1" />
   <parameter name="USE_STORE_FORWARD" value="1" />
+  <parameter name="USE_ALMOST_FULL_IF" value="0" />
+  <parameter name="USE_ALMOST_EMPTY_IF" value="0" />
+  <parameter name="ENABLE_EXPLICIT_MAXCHANNEL" value="false" />
+  <parameter name="EXPLICIT_MAXCHANNEL" value="0" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
  </module>
  <connection
    kind="avalon"
-   version="16.1"
+   version="13.0"
    start="JTAG_AMM_Bridge.master"
    end="MAC.control_port">
   <parameter name="arbitrationPriority" value="1" />
@@ -209,7 +202,7 @@ proc compose {} {
  </connection>
  <connection
    kind="avalon"
-   version="16.1"
+   version="13.0"
    start="JTAG_AMM_Bridge.master"
    end="sc_fifo_0.csr">
   <parameter name="arbitrationPriority" value="1" />
@@ -218,52 +211,52 @@ proc compose {} {
  </connection>
  <connection
    kind="avalon_streaming"
-   version="16.1"
+   version="13.0"
    start="sc_fifo_0.out"
    end="MAC.transmit" />
  <connection
    kind="avalon_streaming"
-   version="16.1"
+   version="13.0"
    start="MAC.receive"
    end="sc_fifo_0.in" />
  <connection
    kind="clock"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk"
    end="JTAG_AMM_Bridge.clk" />
  <connection
    kind="clock"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk"
    end="sc_fifo_0.clk" />
  <connection
    kind="clock"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk"
    end="MAC.control_port_clock_connection" />
  <connection
    kind="clock"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk"
    end="MAC.receive_clock_connection" />
  <connection
    kind="clock"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk"
    end="MAC.transmit_clock_connection" />
  <connection
    kind="reset"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk_reset"
    end="sc_fifo_0.clk_reset" />
  <connection
    kind="reset"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk_reset"
    end="JTAG_AMM_Bridge.clk_reset" />
  <connection
    kind="reset"
-   version="16.1"
+   version="13.0"
    start="clk_125m_system.clk_reset"
    end="MAC.reset_connection" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
