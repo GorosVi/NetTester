@@ -65,6 +65,7 @@ timing/
 testbench/
 output_files/
 *_sim/
+.qsys_edit/
 
 *.ddb
 
