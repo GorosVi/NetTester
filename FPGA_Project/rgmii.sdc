@@ -12,9 +12,9 @@
 
 set_time_format -unit ns -decimal_places 3
 
-create_clock -name {clk_25m_i} -period 40.000 -waveform { 0.000 20.000 } [get_ports {clk_25m_i}]
+create_clock -name {clk_25} -period 40.000 -waveform { 0.000 20.000 } [get_ports {clk_25m_i}]
 
-set_false_path -from [get_registers {*ctrl_regs*}]
+#set_false_path -from [get_registers {*ctrl_regs*}]
 
 
 # 1000MHz: Period = 8ns		|	 100MHz: Period = 40ns	 |	 10MHz: Period = 400ns 
@@ -38,22 +38,13 @@ set rgmii_rx_25M_clk            "rgmii_rx_25M_clk"
 set rgmii_rx_2_5M_clk           "rgmii_rx_2_5M_clk"
 
 # Change the name of rgmii interface on the top level
-set rgmii_tx_clk_0     "trg_tx_clk_o[0]"
-set rgmii_out_0        "trg_txd_o[0]"
-set rgmii_tx_control_0 "trg_tx_ctrl_o[0]"
+set rgmii_tx_clk_0     "trg_tx_clk_o"
+set rgmii_out_0        "trg_txd_o"
+set rgmii_tx_control_0 "trg_tx_ctrl_o"
 
-set rgmii_rx_clk_0     "trg_rx_clk_i[0]"
-set rgmii_in_0         "trg_rxd_i[0]"
-set rgmii_rx_control_0 "trg_rx_ctrl_i[0]"
-
-#set rgmii_tx_clk_1     "trg_tx_clk_o[1]"
-#set rgmii_out_1        "trg_txd_o[1]"
-#set rgmii_tx_control_1 "trg_tx_ctrl_o[1]"
-
-#set rgmii_rx_clk_1     "trg_rx_clk_i[1]"
-#set rgmii_in_1         "trg_rxd_i[1]"
-#set rgmii_rx_control_1 "trg_rx_ctrl_i[1]"
-
+set rgmii_rx_clk_0     "trg_rx_clk_i"
+set rgmii_in_0         "trg_rxd_i"
+set rgmii_rx_control_0 "trg_rx_ctrl_i"
 
 
 #**************************************************************
@@ -86,10 +77,6 @@ create_clock -name "rgmii_rx_125M_clk_0" -period $RX_CLK_125M_PERIOD \
 -waveform "[expr 0.25*$RX_CLK_125M_PERIOD] [expr 0.75*$RX_CLK_125M_PERIOD]" \
 [get_ports "$rgmii_rx_clk_0"]
 
-#create_clock -name "rgmii_rx_125M_clk_1" -period $RX_CLK_125M_PERIOD \
--waveform "[expr 0.25*$RX_CLK_125M_PERIOD] [expr 0.75*$RX_CLK_125M_PERIOD]" \
-[get_ports "$rgmii_rx_clk_1"]
-
 #**************************************************************
 # Virtual Clock
 #************************************************************** 
@@ -104,7 +91,7 @@ create_clock -name $rgmii_rx_125M_virtualclk 	-period $RX_CLK_125M_PERIOD
 #**************************************************************
 # Create Generated Clock
 #**************************************************************
-derive_pll_clocks  -use_net_name 
+
 # Tx PLL 
 #**************************************************************
 #create_clock -name clk_125M_0deg -source [ get_ports {tra_clk125m_i} ]
@@ -112,13 +99,6 @@ create_generated_clock -name clk_125M_0deg \
 -source [get_ports {clk_25m_i}] \
 [get_pins {mac_pll_inst|mac_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk}] \
 -multiply_by 5
-
-
-#create_generated_clock -name clk_62_5M \
--source [get_ports {clk_25m_i}] \
-[get_pins {pll_gbe|pll_gbe_inst|altera_pll_i|cyclonev_pll|counter[1].output_counter|divclk}] \
--multiply_by 5 -divide_by 2
-
 
 #**************************************************************
 
@@ -137,13 +117,6 @@ create_generated_clock -name rgmii_125_tx_clk_0 \
 -phase 90 \
 [get_ports $rgmii_tx_clk_0]
 
-#create_generated_clock -name rgmii_125_tx_clk_1 \
--source [get_pins {pll_gbe|pll_gbe_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk}] \
--master_clock clk_125M_0deg \
--phase 90 \
-[get_ports $rgmii_tx_clk_1]
-
-
 #**************************************************************
 
  
@@ -153,7 +126,7 @@ create_generated_clock -name rgmii_125_tx_clk_0 \
 
 #  Each group will be analyzed with its clock domain within the group
 set_clock_groups -exclusive \
--group "clk_125M_0deg rgmii_125_tx_clk_0 rgmii_125_tx_clk_1 rgmii_rx_125M_clk_0 rgmii_rx_125M_clk_1 $rgmii_rx_125M_virtualclk"  
+-group "clk_125M_0deg rgmii_125_tx_clk_0 rgmii_rx_125M_clk_0 $rgmii_rx_125M_virtualclk"  
 
 
 
@@ -221,28 +194,6 @@ set_output_delay -clock rgmii_125_tx_clk_0 \
 -clock_fall \
 -add_delay
 
-#set_output_delay -clock rgmii_125_tx_clk_1 \
--max [expr  $data_delay_max + $tsu - $clk_delay_min] \
-[get_ports "$rgmii_out_1* $rgmii_tx_control_1"] \
--add_delay
-
-#set_output_delay -clock rgmii_125_tx_clk_1 \
--max [expr  $data_delay_max + $tsu - $clk_delay_min] \
-[get_ports "$rgmii_out_1* $rgmii_tx_control_1"] \
--clock_fall \
--add_delay
-
-#set_output_delay -clock rgmii_125_tx_clk_1 \
--min [expr  $data_delay_min - $th - $clk_delay_max] \
-[get_ports "$rgmii_out_1* $rgmii_tx_control_1"] \
--add_delay
-
-#set_output_delay -clock rgmii_125_tx_clk_1 \
--min [expr  $data_delay_min - $th - $clk_delay_max] \
-[get_ports "$rgmii_out_1* $rgmii_tx_control_1"] \
--clock_fall \
--add_delay
-
 #**************************************************************
 # Receiver Side (External PHY Delay is Turn On)
 #**************************************************************
@@ -271,25 +222,6 @@ set_false_path \
 -rise_to [get_clocks "rgmii_rx_125M_clk_0"] \
 -hold
 
-#set_false_path \
--fall_from [get_clocks "$rgmii_rx_125M_virtualclk"] \
--rise_to [get_clocks "rgmii_rx_125M_clk_1"] \
--setup
-
-#set_false_path \
--rise_from [get_clocks "$rgmii_rx_125M_virtualclk"] \
--fall_to [get_clocks "rgmii_rx_125M_clk_1"] \
--setup
-
-#set_false_path \
--fall_from [get_clocks "$rgmii_rx_125M_virtualclk"] \
--fall_to [get_clocks "rgmii_rx_125M_clk_1"] \
--hold
-
-#set_false_path \
--rise_from [get_clocks "$rgmii_rx_125M_virtualclk"] \
--rise_to [get_clocks "rgmii_rx_125M_clk_1"] \
--hold
 
 # --------------------------------------------------------
 # Take tco of External Phy and path delay difference between 
@@ -298,7 +230,7 @@ set_false_path \
 # The formula to calculate the input delay is provided in AN433
  
 # Set Input Deday
-set_input_delay -clock  [get_clocks $rgmii_rx_125M_] \
+set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
 -max [expr  $data_delay_max + $tco_max - $clk_delay_min] \
 [get_ports "$rgmii_in_0* $rgmii_rx_control_0"] \
 -add_delay
@@ -317,27 +249,5 @@ set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
 set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
 -min [expr  $data_delay_min + $tco_min - $clk_delay_max] \
 [get_ports "$rgmii_in_0* $rgmii_rx_control_0"] \
--clock_fall \
--add_delay
-
-#set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
--max [expr  $data_delay_max + $tco_max - $clk_delay_min] \
-[get_ports "$rgmii_in_1* $rgmii_rx_control_1"] \
--add_delay
-
-#set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
--max [expr  $data_delay_max + $tco_max - $clk_delay_min] \
-[get_ports "$rgmii_in_1* $rgmii_rx_control_1"] \
--clock_fall \
--add_delay
-
-#set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
--min [expr  $data_delay_min + $tco_min - $clk_delay_max] \
-[get_ports "$rgmii_in_1* $rgmii_rx_control_1"] \
--add_delay
-
-#set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
--min [expr  $data_delay_min + $tco_min - $clk_delay_max] \
-[get_ports "$rgmii_in_1* $rgmii_rx_control_1"] \
 -clock_fall \
 -add_delay

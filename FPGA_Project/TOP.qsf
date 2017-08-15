@@ -60,28 +60,28 @@ set_global_assignment -name USE_SIGNALTAP_FILE TOP.stp
 set_location_assignment PIN_AA8 -to clk_25m_i
 
 # port A 1G
-set_location_assignment PIN_W12 -to trg_clk125m_i[0]
+set_location_assignment PIN_W12 -to trg_clk125m_i
 
-set_location_assignment PIN_Y11 -to trg_rxd_i[0][0]
-set_location_assignment PIN_AA13 -to trg_rxd_i[0][1]
-set_location_assignment PIN_V15 -to trg_rxd_i[0][2]
-set_location_assignment PIN_W16 -to trg_rxd_i[0][3]
+set_location_assignment PIN_Y11 -to trg_rxd_i[0]
+set_location_assignment PIN_AA13 -to trg_rxd_i[1]
+set_location_assignment PIN_V15 -to trg_rxd_i[2]
+set_location_assignment PIN_W16 -to trg_rxd_i[3]
 
-set_location_assignment PIN_Y13 -to trg_rx_clk_i[0]
-set_location_assignment PIN_AA11 -to trg_rx_ctrl_i[0]
+set_location_assignment PIN_Y13 -to trg_rx_clk_i
+set_location_assignment PIN_AA11 -to trg_rx_ctrl_i
 
-set_location_assignment PIN_AB12 -to trg_txd_o[0][0]
-set_location_assignment PIN_AB13 -to trg_txd_o[0][1]
-set_location_assignment PIN_AB15 -to trg_txd_o[0][2]
-set_location_assignment PIN_Y15 -to trg_txd_o[0][3]
+set_location_assignment PIN_AB12 -to trg_txd_o[0]
+set_location_assignment PIN_AB13 -to trg_txd_o[1]
+set_location_assignment PIN_AB15 -to trg_txd_o[2]
+set_location_assignment PIN_Y15 -to trg_txd_o[3]
 
-set_location_assignment PIN_AB14 -to trg_tx_clk_o[0]
-set_location_assignment PIN_Y16 -to trg_tx_ctrl_o[0]
+set_location_assignment PIN_AB14 -to trg_tx_clk_o
+set_location_assignment PIN_Y16 -to trg_tx_ctrl_o
 
-set_location_assignment PIN_V16 -to trg_mdc_o[0]
-set_location_assignment PIN_U17 -to trg_mdio_io[0]
+set_location_assignment PIN_V16 -to trg_mdc_o
+set_location_assignment PIN_U17 -to trg_mdio_io
 
-set_location_assignment PIN_V19 -to trg_nreset_o[0]
+set_location_assignment PIN_V19 -to trg_nreset_o
 
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name SDC_FILE rgmii.sdc
