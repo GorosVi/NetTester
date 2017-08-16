@@ -1,5 +1,5 @@
 # Reference
-#	AN 433: Constraining and Analyzing Source-Synchronous Interfaces.pdf 
+#	AN 433: Constraining and Analyzing Source-Synchronous Interfaces.pdf
 
 
 # *************************************************************
@@ -17,12 +17,12 @@ create_clock -name {clk_25} -period 40.000 -waveform { 0.000 20.000 } [get_ports
 #set_false_path -from [get_registers {*ctrl_regs*}]
 
 
-# 1000MHz: Period = 8ns		|	 100MHz: Period = 40ns	 |	 10MHz: Period = 400ns 
+# 1000MHz: Period = 8ns		|	 100MHz: Period = 40ns	 |	 10MHz: Period = 400ns
 set RX_CLK_125M_PERIOD	8
 set RX_CLK_25M_PERIOD	40
 set RX_CLK_2_5M_PERIOD	400
 
-# 1000MHz: Period = 8ns		|	 100MHz: Period = 40ns	 |	 10MHz: Period = 400ns 
+# 1000MHz: Period = 8ns		|	 100MHz: Period = 40ns	 |	 10MHz: Period = 400ns
 set TX_CLK_125M_PERIOD	8
 set TX_CLK_25M_PERIOD	40
 set TX_CLK_2_5M_PERIOD	400
@@ -48,7 +48,7 @@ set rgmii_rx_control_0 "trg_rx_ctrl_i"
 
 
 #**************************************************************
-# Board and External PHY 
+# Board and External PHY
 #**************************************************************
 
 # Board Delay
@@ -57,7 +57,7 @@ clock are negligible.
 set data_delay_max 		0
 set data_delay_min		0
 set clk_delay_max		0
-set clk_delay_min		0 
+set clk_delay_min		0
 
 # External PHY Parameter (Refer to MarvelPHY 88EE1111)
 # for tx
@@ -70,7 +70,7 @@ set tco_min -0.8
 
 
 #**************************************************************
-# Create Clock 
+# Create Clock
 #**************************************************************
 # Create clock with 90 degree shift for center align
 create_clock -name "rgmii_rx_125M_clk_0" -period $RX_CLK_125M_PERIOD \
@@ -79,20 +79,20 @@ create_clock -name "rgmii_rx_125M_clk_0" -period $RX_CLK_125M_PERIOD \
 
 #**************************************************************
 # Virtual Clock
-#************************************************************** 
-# Virtual Clock is the clock outside the FPGA.  It is also used 
+#**************************************************************
+# Virtual Clock is the clock outside the FPGA.  It is also used
 # to differentiate the clock uncertainty between
 # Input to Register, Register to Register and Output to Register
 
 
-create_clock -name $rgmii_rx_125M_virtualclk 	-period $RX_CLK_125M_PERIOD 
+create_clock -name $rgmii_rx_125M_virtualclk 	-period $RX_CLK_125M_PERIOD
 
 
 #**************************************************************
 # Create Generated Clock
 #**************************************************************
 
-# Tx PLL 
+# Tx PLL
 #**************************************************************
 #create_clock -name clk_125M_0deg -source [ get_ports {tra_clk125m_i} ]
 create_generated_clock -name clk_125M_0deg \
@@ -119,14 +119,15 @@ create_generated_clock -name rgmii_125_tx_clk_0 \
 
 #**************************************************************
 
- 
+
 #**************************************************************
 # Set Clock Groups / Set False Path
 #**************************************************************
 
 #  Each group will be analyzed with its clock domain within the group
 set_clock_groups -exclusive \
--group "clk_125M_0deg rgmii_125_tx_clk_0 rgmii_rx_125M_clk_0 $rgmii_rx_125M_virtualclk"  
+-group "clk_125M_0deg rgmii_125_tx_clk_0" \
+-group "rgmii_rx_125M_clk_0 $rgmii_rx_125M_virtualclk"
 
 
 
@@ -134,8 +135,8 @@ set_clock_groups -exclusive \
 # Derive Clock Uncertainty
 #**************************************************************
 
-derive_clock_uncertainty 
-
+derive_clock_uncertainty
+derive_pll_clocks
 
 #**************************************************************
 # Transmit Side (External PHY Delay is Turn On)
@@ -166,7 +167,7 @@ set_false_path \
 -hold
 
 # --------------------------------------------------------
-# Take setup and hold time of External Phy and path delay difference  
+# Take setup and hold time of External Phy and path delay difference
 # between data and clock into timing analysis consideration for 125M clock
 
 # The formula to calculate the output delay is provided in AN433
@@ -224,11 +225,11 @@ set_false_path \
 
 
 # --------------------------------------------------------
-# Take tco of External Phy and path delay difference between 
+# Take tco of External Phy and path delay difference between
 # data and clock into timing analysis consideration for 125M clock
 
 # The formula to calculate the input delay is provided in AN433
- 
+
 # Set Input Deday
 set_input_delay -clock  [get_clocks $rgmii_rx_125M_virtualclk] \
 -max [expr  $data_delay_max + $tco_max - $clk_delay_min] \

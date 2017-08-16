@@ -1,6 +1,6 @@
 module TOP(
 	input  wire clk_25m_i,
-	input  wire srst_i,
+//	input  wire srst_i,
 
 	input  wire trg_rx_clk_i,
 	input  wire [3:0] trg_rxd_i,
@@ -14,6 +14,8 @@ module TOP(
 
 	output wire trg_nreset_o
 );
+wire srst_i;
+assign srst_i = 1'b0;
 
 wire srst_n = ~srst_i;
 
