@@ -17,6 +17,8 @@ module TOP(
 wire srst_i;
 assign srst_i = 1'b0;
 
+assign trg_nreset_o = 1'b1;
+
 wire srst_n = ~srst_i;
 
 wire clk_125m_out;
