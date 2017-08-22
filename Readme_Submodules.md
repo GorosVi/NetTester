@@ -146,14 +146,15 @@ MAC-ядро настроено на выравнивание принимаем
 
 Интерфейс RGMII экспортируется в TOP-level файл.
 
+Инициализацию системы можно провести с помошью скрипта MACconfigure.tcl; а с помощью MACreadNclear.tcl можно считать данные счётчиков статистики (и автоматически стереть их значения)
 При старте системы, перед настройкой регистров остальных модулей системы в регистры MAC должны быть записаны следующие значения:
-* 0x02 command_config - 0x00000168
+* 0x02 command_config - 0x00000128
   * TX_ENA = 0
   * RX_ENA = 0
   * ETH_SPEED = 1 - enable GBe speed
   * PROMIS_EN = 0
   * PAD_EN = 1
-  * CRC_FWD = 1
+  * CRC_FWD = 0
   * PAUSE_FWD = 0
   * PAUSE_IGNORE = 1 - disabled flow control
   * TX_ADDR_INS = 0
@@ -171,8 +172,8 @@ MAC-ядро настроено на выравнивание принимаем
  * 0x0B rx_almost_empty - 8 (default)
  * 0x0C rx_almost_full - 8 (default)
  * 0x0D tx_almost_empty - 8 (default)
- * 0x0E tx_almost_full - 8 (default)
- * 0x0F mdio_addr0 - TODO! - hardware-specific
+ * 0x0E tx_almost_full - 3 (default) // Если задать 8 - ядро виснет, если подавать больше данных, чем оно способно передать.
+ * 0x0F mdio_addr0 - 0x0 - для порта 0 Ethond v1.0
  * 0x17 tx_ipg_length - 12 (standard-based 96 bit-times)
 
 В проекте MAC-ядро использовано в следущей конфигурации:
@@ -187,7 +188,7 @@ MAC-ядро настроено на выравнивание принимаем
 * **Enable local loopback on MII/GMII/RGMII: on**
 * Enable supplemental MAC unicast adresses: off
 * Include statistics counters: on
-* Enable 64-bit statistics byte counters: off
+* Enable 64-bit statistics byte counters: on
 * Include multicast hashtable: off
 * **Align packet headers to 32-bit boundary: on**
 * **Enable fullduplex flow control: off**
@@ -195,6 +196,7 @@ MAC-ядро настроено на выравнивание принимаем
 * Enable magic packet detection: off
 * Include MDIO module (MDC/MDIO): on
 * FIFO Width: 32 bits
-* FIFO Depth: 64 words
+* FIFO RX Depth: 64 words
+* FIFO TX Depth: 64 words
 * Enable timestamping: off
 
