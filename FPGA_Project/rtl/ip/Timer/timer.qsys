@@ -9,9 +9,6 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
-   element $${FILENAME}
-   {
-   }
    element clk_0
    {
       datum _sortIndex
@@ -39,11 +36,14 @@
  <parameter name="generationId" value="0" />
  <parameter name="globalResetBus" value="false" />
  <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="hideFromIPCatalog" value="false" />
+ <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
  <parameter name="projectName" value="timer.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
- <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1503576462477" />
+ <parameter name="systemHash" value="0" />
+ <parameter name="testBenchDutName" value="" />
+ <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -53,24 +53,23 @@
    internal="simple_timer_0.timer_out"
    type="conduit"
    dir="end" />
- <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
+ <module name="clk_0" kind="clock_source" version="16.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
- <module kind="simple_timer" version="1.0" enabled="1" name="simple_timer_0">
+ <module name="simple_timer_0" kind="simple_timer" version="1.0" enabled="1">
   <parameter name="WIDTH" value="32" />
-  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="50000000" />
  </module>
  <connection
    kind="clock"
-   version="13.0"
+   version="16.1"
    start="clk_0.clk"
    end="simple_timer_0.clock_sink" />
  <connection
    kind="reset"
-   version="13.0"
+   version="16.1"
    start="clk_0.clk_reset"
    end="simple_timer_0.reset_sink" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />

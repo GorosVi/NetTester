@@ -62,6 +62,14 @@
          type = "String";
       }
    }
+   element simple_timer_0
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
@@ -203,6 +211,9 @@ proc compose {} {
   <parameter name="USE_PACKETS" value="1" />
   <parameter name="USE_STORE_FORWARD" value="1" />
  </module>
+ <module name="simple_timer_0" kind="simple_timer" version="1.0" enabled="1">
+  <parameter name="WIDTH" value="32" />
+ </module>
  <connection
    kind="avalon"
    version="16.1"
@@ -245,6 +256,11 @@ proc compose {} {
    kind="clock"
    version="16.1"
    start="clk_125m_system.clk"
+   end="simple_timer_0.clock_sink" />
+ <connection
+   kind="clock"
+   version="16.1"
+   start="clk_125m_system.clk"
    end="MAC.control_port_clock_connection" />
  <connection
    kind="clock"
@@ -271,6 +287,11 @@ proc compose {} {
    version="16.1"
    start="clk_125m_system.clk_reset"
    end="MAC.reset_connection" />
+ <connection
+   kind="reset"
+   version="16.1"
+   start="clk_125m_system.clk_reset"
+   end="simple_timer_0.reset_sink" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>
